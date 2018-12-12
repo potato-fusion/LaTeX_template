@@ -1,29 +1,38 @@
-% プラ核講演予稿　geometry版
+% プラ核講演予稿　jsarticle版
 % 2段組に設定
 % 以下を参照して「好ましくない表記」を解消
 % % https://ichiro-maruta.blogspot.com/2013/03/latex.html
 % 要件は以下の通り（年会HPによる）
 % % A4縦，余白各15mm，題目は中央揃えにして1行目から，左上隅に講演番号
-% 2018/12/07 T.Yokoyama@The University of Tokyo
-\documentclass[a4j,11pt,twocolumn,dvipdfmx,platex]{jarticle}
+% 2018/12/12 T.Yokoyama@The University of Tokyo
+\documentclass[a4j,11pt,twocolumn,dvipdfmx,platex]{jsarticle}
+% uplatexを使用する場合は上の行をコメントアウトして以下のコメントアウトを解除
+% \documentclass[a4j,11pt,twocolumn,dvipdfmx,uplatex]{jsarticle}
 \usepackage[dvipdfmx]{graphicx,color}
 \usepackage[T1]{fontenc}
-\usepackage[left=15mm, right=15mm, top=15mm, bottom=15mm]{geometry}
+\usepackage[margin=13.636mm]{geometry}
 
-\usepackage{amsmath} %数式環境
+% スペース調整（jarticleの大きさに合わせる）
+\usepackage{setspace}
+\setstretch{0.9374}
+
+\usepackage{amsmath,amssymb} %数式環境
 \usepackage{bm} %数式中の太字
 \usepackage{siunitx} %文章中にSI単位を記述
 \usepackage[deluxe]{otf} %フォント管理
 
 \pagestyle{empty} %ページ数を表示しない
 \renewcommand{\refname}{References} %参考文献の表示を変更
-\renewcommand{\figurename}{Fig.} %Figの表示を変更
+
+\usepackage{caption}
+\captionsetup[figure]{name=Fig.~,labelsep=colon}
+\captionsetup[table]{name=Tbl.~,labelsep=quad}
 
 % セクション前後の空白を調節
 \makeatletter
 \renewcommand{\section}{\@startsection {section}{1}{\z@}%
-   {.5em \@plus.5em \@minus.2em}%
-   {.2em \@plus.3em}%
+   {.5zh \@plus.5zh \@minus.2zh}%
+   {.2zh \@plus.3zh}%
    {\normalfont\large\bfseries}%
    }
 \makeatother
@@ -90,6 +99,12 @@ A4縦2段組みです．
   \label{fig:figure_label}
 \end{figure}
 
+数式のサンプル（式\ref{eq:sample}）．
+
+\begin{align}
+  \nabla P = j \times B
+  \label{eq:sample}
+\end{align}
 
 %%%%%%%%%%%%% この下に参考文献を書いてください。%%%%%
 %\footnotesize
